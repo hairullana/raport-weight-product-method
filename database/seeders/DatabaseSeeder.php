@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Admin;
+use App\Models\Guru;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,5 +29,15 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => password_hash('admin', PASSWORD_DEFAULT),
         ]);
+
+        // create guru
+        for ($i = 1; $i <= 6; $i++) {
+            Guru::create([
+                'username' => "guru$i",
+                'password' => password_hash('password', PASSWORD_DEFAULT),
+                'nama' => fake()->name(),
+                'kelas' => $i,
+            ]);
+        }
     }
 }
