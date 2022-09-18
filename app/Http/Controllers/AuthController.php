@@ -23,7 +23,7 @@ class AuthController extends Controller
         if ($request->username == 'admin') {
             if (Auth::guard('admin')->attempt($credentials)) {
                 $request->session()->regenerate();
-                return redirect()->intended('/');
+                return redirect()->route('admin.index');
             }
         }
     }
