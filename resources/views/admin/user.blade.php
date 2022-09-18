@@ -147,25 +147,4 @@
                 </section>
             </div>
             <footer>
-            <div class="footer clearfix mb-0 text-muted">
-                <div class="float-start">
-                    <p>
-                         2022 &copy; Universitas Ahmad Dalam
-                    </p>
-                </div>
-                <div class="float-end">
-                    <p>
-                         Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by Baiq Nikum Yulisasih (1800018282)</a>
-                    </p>
-                </div>
-            </div>
-            </footer>
-        </div>
-    </div>
-    <script src="/admin-assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="/admin-assets/js/bootstrap.bundle.min.js"></script>
-    <script src="/admin-assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="/admin-assets/js/pages/dashboard.js"></script>
-    <script src="/admin-assets/js/main.js"></script>
-    </body>
-    </html>
+            @endsection

@@ -31,13 +31,13 @@
             <div class="sidebar-menu">
                 <ul class="menu">
                     <li class="sidebar-title">Menu</li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item active ">
                         <a href="index.html" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item ">
                         <a href="dashboard-table.html" class='sidebar-link'>
                         <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                         <span>Daftar Siswa</span>
@@ -55,7 +55,7 @@
                         <span>Siswa Berprestasi</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item ">
                         <a href="user.html" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>user</span>
@@ -67,40 +67,43 @@
                         <span>Log out</span>
                         </a>
                     </li>
-                </div>
-                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+        </div>
+    </div>
+    <div id="main">
+        @yield('body')
+    </div>
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>
+                    2022 &copy; Universitas Ahmad Dalam
+                </p>
+            </div>
+            <div class="float-end">
+                <p>
+                    Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by Baiq Nikum Yulisasih (1800018282)</a>
+                </p>
             </div>
         </div>
-        <div id="main">
-            <header class="mb-3">
-            <a href="#" class="burger-btn d-block d-xl-none"><i class="bi bi-justify fs-3"></i></a>
-            </header>
-            <div class="page-heading">
-                <div class="card mb-3">
-                   <center> <img src="https://i.ibb.co/8Y9LNYb/download.jpg" class="card-img" style="float: center height: 300ps; width :200px; margin: 20px; " height="300" width="200" alt="...">
-                    <div class="card-body">
-                        <h5 class="col-md-8 fs-4" style="">Baiq Nikum Yulisasih</h5>
-                        <p class="card-text">NISN : 2304</p>
-                        <p class="card-text">Nilai PABD : 89</p>
-                        <p class="card-text">Nilai PPKN : 89</p>
-                        <p class="card-text">Nilai Bahasa Indonesia : 89</p>
-                        <p class="card-text">Nilai Matematika : 89</p>
-                        <p class="card-text">Nilai IPA : 89</p>
-                        <p class="card-text">Nilai IPS : 89</p>
-                        <p class="card-text">Nilai SBDB : 89</p>
-                        <p class="card-text">Nilai PJOK : 89</p>
-                        <p class="card-text">Nilai BAHASA Jawa  : 89</p>
-                        <p class="card-text">Nilai Pendidikan Batik : 90</p>
-                        <p class="card-text">Nilai Keadiran: 87</p>
-                        <p class="card-text">Nilai Sikap  : 89</p>
-                        <p class="card-text">Status : active</p>
-                        <p class="card-text">
-                            </center>
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <footer>
-            @endsection
+        </footer>
+    </div>
+</div>
+<script src="/admin-assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="/admin-assets/js/bootstrap.bundle.min.js"></script>
+<script src="/admin-assets/vendors/apexcharts/apexcharts.js"></script>
+<script src="/admin-assets/js/pages/dashboard.js"></script>
+<script src="/admin-assets/js/main.js"></script>
+<script src="/admin-assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="/admin-assets/js/bootstrap.bundle.min.js"></script>
+<script src="/admin-assets/vendors/simple-datatables/simple-datatables.js"></script>
+<script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
+<script src="/admin-assets/js/main.js"></script>
+</body>
+</html>
