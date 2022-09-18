@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['controller' => AuthController::class, 'prefix' => '/auth', 'as' => 'auth.'], function () {
+Route::group(['controller' => AuthController::class, 'prefix' => '/auth', 'as' => 'auth.', 'middleware' => 'guest:admin,guru'], function () {
     Route::get('/login', 'login')->name('login');
+    Route::post('/login', 'loginAction')->name('login-action');
+});
+
+Route::get('/', function () {
+    return Auth::guard('admin')->user()->username;
 });
