@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\Guru;
+use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -38,6 +39,17 @@ class DatabaseSeeder extends Seeder
                 'nama' => fake()->name(),
                 'kelas' => $i,
             ]);
+        }
+
+        // create siswa
+        for ($i = 1; $i <= 6; $i++) {
+            for ($j = 1; $j <= 20; $j++) {
+                Siswa::create([
+                    'nama' => fake()->name(),
+                    'nisn' => fake()->numberBetween(0000000001, 9999999999),
+                    'kelas' => $i,
+                ]);
+            }
         }
     }
 }

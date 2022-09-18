@@ -17,7 +17,7 @@
                             <div class="card-body px-3 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <a href="table-datatable.html">
+                                        <a href="{{ route('admin.daftar-siswa-detail', Crypt::encrypt($guru->kelas)) }}">
                                         <div class="stats-icon purple">
                                             <i class="iconly-boldShow"></i>
                                         </div>

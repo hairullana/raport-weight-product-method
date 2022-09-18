@@ -29,4 +29,5 @@ Route::group(['controller' => AuthController::class, 'prefix' => '/auth', 'as' =
 Route::group(['controller' => AdminController::class, 'prefix' => '/admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
     Route::get('/', 'index')->name('index');
     Route::get('/daftar-siswa', 'daftarSiswa')->name('daftar-siswa');
+    Route::get('/daftar-siswa/{kelas}', 'daftarSiswaDetail')->name('daftar-siswa-detail');
 });
