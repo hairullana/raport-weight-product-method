@@ -15,11 +15,16 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::group(['controller' => AuthController::class, 'prefix' => '/auth', 'as' => 'auth.', 'middleware' => 'guest:admin,guru'], function () {
-    Route::get('/login', 'login')->name('login');
-    Route::post('/login', 'loginAction')->name('login-action');
+Route::group(['controller' => AuthController::class, 'prefix' => '/auth', 'as' => 'auth.'], function () {
+    Route::group(['middleware' => 'guest:admin,guru'], function () {
+        Route::get('/login', 'login')->name('login');
+        Route::post('/login', 'loginAction')->name('login-action');
+    });
+    Route::group(['middleware' => 'auth:admin,guru'], function () {
+        Route::get('/logout', 'logout')->name('logout');
+    });
 });
 
 Route::get('/', function () {
     return Auth::guard('admin')->user()->username;
-});
+})->middleware('auth:admin,guru');
