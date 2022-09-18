@@ -31,37 +31,37 @@
             <div class="sidebar-menu">
                 <ul class="menu">
                     <li class="sidebar-title">Menu</li>
-                    <li class="sidebar-item active ">
+                    <li class="sidebar-item @if ($active == 'dashboard') active @endif">
                         <a href="index.html" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item ">
-                        <a href="dashboard-table.html" class='sidebar-link'>
+                    <li class="sidebar-item @if ($active == 'daftar-siswa') active @endif">
+                        <a href="{{ route('admin.daftar-siswa') }}" class='sidebar-link'>
                         <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                         <span>Daftar Siswa</span>
                         </a>
                     </li>
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item @if ($active == '') active @endif">
                         <a href="Perhitungan.html" class='sidebar-link'>
                         <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                         <span>Perhitungan</span>
                         </a>
                     </li>
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item @if ($active == '') active @endif">
                         <a href="dashboard-siswa-berprestasi.html" class='sidebar-link'>
                         <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                         <span>Siswa Berprestasi</span>
                         </a>
                     </li>
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item @if ($active == '') active @endif">
                         <a href="user.html" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>user</span>
                         </a>
                     </li>
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item @if ($active == '') active @endif">
                         <a href="logout.html" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Log out</span>

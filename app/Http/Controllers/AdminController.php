@@ -13,7 +13,18 @@ class AdminController extends Controller
         $guru = Guru::all();
 
         return view('admin.index', [
-            'gurus' => $guru
+            'active' => 'dashboard',
+            'gurus' => $guru,
+        ]);
+    }
+
+    public function daftarSiswa()
+    {
+        $guru = Guru::all();
+
+        return view('admin.daftar-siswa', [
+            'active' => 'daftar-siswa',
+            'gurus' => $guru,
         ]);
     }
 }
