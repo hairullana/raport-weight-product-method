@@ -104,67 +104,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>30</td>
-                        <td>
-                            <a href="kelas_1.html"><span class="badge bg-warning">Hitung</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>32</td>
-                        <td>
-                            <a href="kelas_2.html"><span class="badge bg-warning">Hitung</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>22</td>
-                        <td>
-                            <a href="kelas_3.html"><span class="badge bg-warning">Hitung</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>42</td>
-                        <td>
-                            <a href="kelas_4.html"><span class="badge bg-warning">Hitung</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>30</td>
-                        <td>
-                            <a href="kelas_5.html"><span class="badge bg-warning">Hitung</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>62</td>
-                        <td>
-                            <a href="kelas_6.html"><span class="badge bg-warning">Hitung</span></a>
-                        </td>
-                    </tr>
+                        @for ($i = 1; $i <= 6 ; $i++)
+                            <tr>
+                                <td>{{ $i }}</td>
+                                <td>{{ App\Models\Siswa::where('kelas', $i)->get()->count() }}</td>
+                                <td>
+                                    <a href="kelas_1.html"><span class="badge bg-warning">Hitung</span></a>
+                                </td>
+                            </tr>
+                        @endfor
                     </tbody>
                     </table>
                 </div>
             </div>
             </section>
         </div>
-        <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>
-                    2022 &copy; Universitas Ahmad Dalam
-                </p>
-            </div>
-            <div class="float-end">
-                <p>
-                    Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by Baiq Nikum Yulisasih (1800018282)</a>
-                </p>
-            </div>
-        </div>
-        </footer>
     </div>
 @endsection
