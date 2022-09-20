@@ -70,4 +70,11 @@ class AdminController extends Controller
 
         return redirect()->route('admin.daftar-siswa-detail', Crypt::encrypt($kelas))->with('message', 'Siswa berhasil ditambahkan');
     }
+
+    public function perhitungan()
+    {
+        return view('admin.perhitungan', [
+            'active' => 'perhitungan'
+        ]);
+    }
 }

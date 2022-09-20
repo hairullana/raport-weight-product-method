@@ -36,4 +36,5 @@ Route::group(['controller' => AdminController::class, 'prefix' => '/admin', 'as'
     Route::get('/daftar-siswa/tambah/{kelas}', 'tambahSiswa')->name('tambah-siswa');
     Route::post('/daftar-siswa/tambah/{kelas}', 'tambahSiswaAction')->name('tambah-siswa-action');
     Route::get('/daftar-siswa/{kelas}', 'daftarSiswaDetail')->name('daftar-siswa-detail');
+    Route::get('/perhitungan', 'perhitungan')->name('perhitungan');
 });
