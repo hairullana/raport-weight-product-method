@@ -26,9 +26,15 @@
         <section class="section">
         <div class="card">
             <div class="card-header">
-                Daftar Siswa Kelas {{ Crypt::decrypt(request()->kelas) }} <a href="tambah_data_siswa.html"><span class="badge bg-primary">Tambah Data</span></a>
+                Daftar Siswa Kelas {{ Crypt::decrypt(request()->kelas) }} <a href="{{ route('admin.tambah-siswa', request()->kelas) }}"><span class="badge bg-primary">Tambah Data</span></a>
             </div>
             <div class="card-body">
+                @if (Session::has('message'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ Session::get('message') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <table class="table table-striped" id="table1">
                 <thead>
                 <tr>

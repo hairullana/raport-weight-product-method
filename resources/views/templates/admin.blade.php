@@ -105,5 +105,6 @@
     let dataTable = new simpleDatatables.DataTable(table1);
 </script>
 <script src="/admin-assets/js/main.js"></script>
+@stack('custom-js')
 </body>
 </html>

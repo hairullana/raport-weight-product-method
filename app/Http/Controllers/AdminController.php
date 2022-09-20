@@ -40,4 +40,34 @@ class AdminController extends Controller
             'siswas' => $siswa,
         ]);
     }
+
+    public function tambahSiswa()
+    {
+        return view('admin.tambah_data_siswa', [
+            'active' => 'daftar-siswa',
+        ]);
+    }
+
+    public function tambahSiswaAction(Request $request, $kelas)
+    {
+        $kelas = Crypt::decrypt($kelas);
+
+        $request->validate([
+            'nisn' => ['numeric', 'unique:siswas,nisn', 'min:10', 'max:10'],
+            'nama' => ['min:3'],
+            'foto' => ['mimes:jpg,png,jpeg', 'max:1024']
+        ]);
+
+        $foto = $request->file('foto');
+        $foto = $foto->store('foto');
+
+        Siswa::create([
+            'nama' => $request->nama,
+            'nisn' => $request->nisn,
+            'kelas' => $kelas,
+            'foto' => $foto,
+        ]);
+
+        return redirect()->route('admin.daftar-siswa-detail', Crypt::encrypt($kelas))->with('message', 'Siswa berhasil ditambahkan');
+    }
 }
