@@ -16,6 +16,10 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+Route::get('/', function () {
+    return redirect()->route('auth.login');
+});
+
 Route::group(['controller' => AuthController::class, 'prefix' => '/auth', 'as' => 'auth.'], function () {
     Route::group(['middleware' => 'guest:admin,guru'], function () {
         Route::get('/login', 'login')->name('login');
