@@ -64,20 +64,20 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $siswa->nisn }}</td>
                             <td>{{ $siswa->nama }}</td>
-                            <td>88</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>88</td>
-                            <td>88</td>
-                            <td>88</td>
-                            <td>88</td>
-                            <td>88</td>
-                            <td>88</td>
-                            <td>88</td>
-                            <td>88</td>
-                            <td>88</td>
+                            <td>{{ $siswa->nilai->pabd }}</td>
+                            <td>{{ $siswa->nilai->ppkn }}</td>
+                            <td>{{ $siswa->nilai->bahasa_indonesia }}</td>
+                            <td>{{ $siswa->nilai->matematika }}</td>
+                            <td>{{ $siswa->nilai->ipa }}</td>
+                            <td>{{ $siswa->nilai->ips }}</td>
+                            <td>{{ $siswa->nilai->sbdb }}</td>
+                            <td>{{ $siswa->nilai->pjok }}</td>
+                            <td>{{ $siswa->nilai->bahasa_jawa }}</td>
+                            <td>{{ $siswa->nilai->pendidikan_batik }}</td>
+                            <td>{{ $siswa->nilai->kehadiran }}</td>
+                            <td>{{ $siswa->nilai->sikap }}</td>
                             <td>
-                                <span class="badge bg-success">Active</span>
+                                <span class="badge bg-{{ $siswa->is_active ? 'success' : 'danger' }}">{{ $siswa->is_active ? 'Aktif' : 'Tidak Aktif' }}</span>
                             </td>
                             <td>
                                 <a href="tambah_nilai.html"><span class="badge bg-primary">Tambah Nilai</span></a>

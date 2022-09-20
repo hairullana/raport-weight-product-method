@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nisn')->unique();
             $table->integer('kelas');
+            $table->tinyInteger('is_active');
             $table->string('foto')->nullable();
             $table->timestamps();
         });

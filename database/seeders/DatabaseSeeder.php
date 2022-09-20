@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
                     'nama' => fake()->name(),
                     'nisn' => fake()->numberBetween(0000000001, 9999999999),
                     'kelas' => $i,
+                    'is_active' => true,
                     'foto' => null,
                 ]);
             }
