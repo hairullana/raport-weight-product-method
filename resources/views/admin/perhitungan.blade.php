@@ -109,7 +109,7 @@
                                 <td>{{ $i }}</td>
                                 <td>{{ App\Models\Siswa::where('kelas', $i)->get()->count() }}</td>
                                 <td>
-                                    <a href="kelas_1.html"><span class="badge bg-warning">Hitung</span></a>
+                                    <a href="{{ route('admin.perhitungan-action', Crypt::encrypt($i)) }}"><span class="badge bg-warning">Hitung</span></a>
                                 </td>
                             </tr>
                         @endfor

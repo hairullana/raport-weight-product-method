@@ -77,4 +77,32 @@ class AdminController extends Controller
             'active' => 'perhitungan'
         ]);
     }
+
+    public function perhitunganAction($kelas)
+    {
+        $kelas = Crypt::decrypt($kelas);
+
+        return view('admin.perhitungan-detail', [
+            'active' => 'perhitungan'
+        ]);
+    }
+
+    function vector_s(float $nilai, float $kehadiran, float $sikap)
+    {
+        //variable nilai yang masuk pakek niai asli
+        //kehadiran berdasarkan persentase kehadiran siswa dikelas
+        //untuk kehadiran sakit, izin, dan bolos tetap dihitung tidak hadir atau gimana ?
+        //sikap dinilai oleh walikelas
+        // buatin kolom vector s jadinya ntar masukin db pakek function ini
+        return $nilai * 0.6 + $kehadiran * 0.1 + $sikap * 0.3;
+    }
+
+    //input vector dan total nilai vector dari keseluruhan data kelas, untuk total ambil lansung dari db jumlah vector s
+
+    function vector_v(float $v, float $total)
+    {
+        // jadinya ntar di db ada tambahan 2 baris buat vector s sama vector v
+        //predikat diurutkan berdasarkan nilai vector v setiap siswa
+        return $v * $total;
+    }
 }
