@@ -37,7 +37,7 @@ Route::group(['controller' => AdminController::class, 'prefix' => '/admin', 'as'
     Route::post('/daftar-siswa/tambah/{kelas}', 'tambahSiswaAction')->name('tambah-siswa-action');
     Route::get('/daftar-siswa/{kelas}', 'daftarSiswaDetail')->name('daftar-siswa-detail');
     Route::get('/perhitungan', 'perhitungan')->name('perhitungan');
-    Route::get('/perhitungan/{kelas}', 'perhitunganAction')->name('perhitungan-action');
+    Route::get('/perhitungan/{kelas}', 'perhitunganDetail')->name('perhitungan-action');
     Route::get('/nilai/update/{siswa_id}', 'updateNilai')->name('update-nilai');
     Route::post('/nilai/update/{siswa_id}', 'updateNilaiAction')->name('update-nilai-action');
 });

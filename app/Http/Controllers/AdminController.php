@@ -79,13 +79,60 @@ class AdminController extends Controller
         ]);
     }
 
-    public function perhitunganAction($kelas)
+    public function perhitunganDetail($kelas)
     {
         $kelas = Crypt::decrypt($kelas);
+        $siswa = $this->perhitunganKelas($kelas);
 
         return view('admin.perhitungan-detail', [
-            'active' => 'perhitungan'
+            'active' => 'perhitungan',
+            'siswas' => $siswa,
         ]);
+    }
+
+    private function perhitunganKelas($kelas)
+    {
+        $siswa = Siswa::where('kelas', $kelas)->get();
+
+        // hitung vektor s
+        $total_vector_s = 0;
+        foreach ($siswa as $murid) {
+            $nilai = Nilai::where('siswa_id', $murid->id)->first();
+            // c1
+            $c1 = array($nilai->pabd, $nilai->ppkn, $nilai->bahasa_indonesia, $nilai->matematika, $nilai->ipa, $nilai->ips, $nilai->sbdb, $nilai->bahasa_jawa, $nilai->pendidikan_batik);
+            $c1 = array_sum($c1) / count($c1);
+            // c2
+            $c2 = $nilai->kehadiran;
+            // c3
+            $c3 = $nilai->sikap;
+
+            $murid['c1'] = $c1;
+            $murid['c2'] = $c2;
+            $murid['c3'] = $c3;
+
+            $vector_s = $this->vector_s($c1, $c2, $c3);
+            $total_vector_s += $vector_s;
+
+            // input ke db
+            $nilai->vector_s = $vector_s;
+            $nilai->save();
+        }
+
+        // hitung vektor v
+        foreach ($siswa as $murid) {
+            $nilai = Nilai::where('siswa_id', $murid->id)->first();
+
+            // vector v
+            $vector_v = $this->vector_v($nilai->vector_s, $total_vector_s);
+
+            // input ke db
+            $nilai->vector_v = $vector_v;
+            $nilai->save();
+
+            $murid['nilai'] = $nilai->vector_v;
+        }
+
+        return $siswa;
     }
 
     private function vector_s(float $nilai, float $kehadiran, float $sikap)

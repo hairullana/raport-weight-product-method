@@ -45,118 +45,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2304</td>
-                            <td>Baiq Nikum Yulisasih</td>
-                            <td>88</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>89</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td>
-                                <a href="lihat_data.html"><span class="badge bg-info">Lihat Data</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2305</td>
-                            <td>Leonardo Davinci</td>
-                            <td>86</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>87</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td>
-                                <a href="Lihat.html"><span class="badge bg-info">Lihat Data</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>2306</td>
-                            <td>Siti Kamila</td>
-                            <td>81</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>85</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td>
-                                <a href="Lihat.html"><span class="badge bg-info">Lihat Data</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>2307</td>
-                            <td>Davis lavanya</td>
-                            <td>79</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>84</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td>
-                                <a href="Lihat.html"><span class="badge bg-info">Lihat Data</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>2308</td>
-                            <td>Krisna Angga</td>
-                            <td>76</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>83</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td>
-                                <a href="Lihat.html"><span class="badge bg-info">Lihat Data</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>2309</td>
-                            <td>Yuning Saestri</td>
-                            <td>75</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>82</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td>
-                                <a href="Lihat.html"><span class="badge bg-info">Lihat Data</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>2400</td>
-                            <td>Dorsal mareka</td>
-                            <td>74</td>
-                            <td>90</td>
-                            <td>87</td>
-                            <td>80</td>
-                            <td>
-                                <span class="badge bg-danger">Non-Active</span>
-                            </td>
-                            <td>
-                                <a href="Lihat.html"><span class="badge bg-info">Lihat Data</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
-                            </td>
-                        </tr>
+                            @foreach ($siswas as $siswa)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $siswa->nisn }}</td>
+                                    <td>{{ $siswa->nama }}</td>
+                                    <td>{{ number_format($siswa->c1, 2) }}</td>
+                                    <td>{{ number_format($siswa->c2, 2) }}</td>
+                                    <td>{{ number_format($siswa->c3, 2) }}</td>
+                                    <td>{{ number_format($siswa->nilai, 2) }}</td>
+                                    <td>
+                                        <span class="badge bg-success">Active</span>
+                                    </td>
+                                    <td>
+                                        <a href="lihat_data.html"><span class="badge bg-info">Lihat Data</span></a>
+                                        <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                         </table>
                     </div>
