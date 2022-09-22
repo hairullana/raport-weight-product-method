@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Nilai;
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Crypt;
 
@@ -87,7 +88,7 @@ class AdminController extends Controller
         ]);
     }
 
-    function vector_s(float $nilai, float $kehadiran, float $sikap)
+    private function vector_s(float $nilai, float $kehadiran, float $sikap)
     {
         //variable nilai yang masuk pakek niai asli
         //kehadiran berdasarkan persentase kehadiran siswa dikelas
@@ -98,11 +99,23 @@ class AdminController extends Controller
     }
 
     //input vector dan total nilai vector dari keseluruhan data kelas, untuk total ambil lansung dari db jumlah vector s
-
-    function vector_v(float $v, float $total)
+    private function vector_v(float $v, float $total)
     {
         // jadinya ntar di db ada tambahan 2 baris buat vector s sama vector v
         //predikat diurutkan berdasarkan nilai vector v setiap siswa
         return $v * $total;
+    }
+
+    public function updateNilai($siswa_id)
+    {
+        $siswa_id = Crypt::decrypt($siswa_id);
+        $siswa = Siswa::find($siswa_id);
+        $nilai = Nilai::where('siswa_id', $siswa_id)->first();
+
+        return view('admin.update-nilai', [
+            'active' => 'daftar-siswa',
+            'siswa' => $siswa,
+            'nilai' => $nilai,
+        ]);
     }
 }

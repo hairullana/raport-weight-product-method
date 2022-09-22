@@ -80,7 +80,7 @@
                                 <span class="badge bg-{{ $siswa->is_active ? 'success' : 'danger' }}">{{ $siswa->is_active ? 'Aktif' : 'Tidak Aktif' }}</span>
                             </td>
                             <td>
-                                <a href="tambah_nilai.html"><span class="badge bg-primary">Tambah Nilai</span></a>
+                            <a href="{{ route('admin.update-nilai', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-primary">Update Nilai</span></a>
                             </td>
                             <td>
                                 <a href="lihat_data_siswa.html"><span class="badge bg-info">Lihat Data</span></a>
