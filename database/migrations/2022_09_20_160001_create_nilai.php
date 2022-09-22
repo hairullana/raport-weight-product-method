@@ -28,6 +28,8 @@ return new class extends Migration
             $table->float('pendidikan_batik');
             $table->float('kehadiran');
             $table->float('sikap');
+            $table->float('vector_s')->nullable();
+            $table->float('vector_v')->nullable();
             $table->timestamps();
         });
     }
