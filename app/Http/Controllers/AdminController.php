@@ -118,4 +118,25 @@ class AdminController extends Controller
             'nilai' => $nilai,
         ]);
     }
+
+    public function updateNilaiAction(Request $request, $siswa_id)
+    {
+        $siswa_id = Crypt::decrypt($siswa_id);
+
+        Nilai::where('siswa_id', $siswa_id)->update([
+            'pabd' => $request->pabd,
+            'ppkn' => $request->ppkn,
+            'bahasa_indonesia' => $request->bahasa_indonesia,
+            'matematika' => $request->matematika,
+            'ipa' => $request->ipa,
+            'ips' => $request->ips,
+            'sbdb' => $request->sbdb,
+            'bahasa_jawa' => $request->bahasa_jawa,
+            'pendidikan_batik' => $request->pendidikan_batik,
+            'kehadiran' => $request->kehadiran,
+            'sikap' => $request->sikap,
+        ]);
+
+        return back()->with('message', 'Nilai berhasil di update');
+    }
 }

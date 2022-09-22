@@ -33,7 +33,14 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form" method="POST">
+                                    @if (Session::has('message'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            {{ Session::get('message') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    @endif
+                                    <form class="form" method="POST" action="{{ route('admin.update-nilai-action', request()->siswa_id) }}">
+                                        @csrf
                                         <div class="row">
                                             {{-- DATA SISWA --}}
                                             <div class="col-md-6 col-12">
