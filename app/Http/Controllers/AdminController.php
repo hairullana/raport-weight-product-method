@@ -94,7 +94,7 @@ class AdminController extends Controller
 
         return view('admin.perhitungan-detail', [
             'active' => 'perhitungan',
-            'siswas' => $siswa,
+            'siswas' => $siswa->sortByDesc('nilai'),
         ]);
     }
 
