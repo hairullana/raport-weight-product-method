@@ -203,4 +203,13 @@ class AdminController extends Controller
             'active' => 'siswa-berprestasi',
         ]);
     }
+
+    public function dataSiswa($siswa_id)
+    {
+        $siswa = Siswa::find(Crypt::decrypt($siswa_id));
+
+        return view('admin.data-siswa', [
+            'active' => 'daftar-siswa',
+        ]);
+    }
 }

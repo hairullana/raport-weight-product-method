@@ -40,7 +40,6 @@
                             <th>Nilai C2</th>
                             <th>Nilai C3</th>
                             <th>Nilai Akhir</th>
-                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                         </thead>
@@ -55,11 +54,7 @@
                                     <td>{{ number_format($siswa->c3, 2) }}</td>
                                     <td>{{ number_format($siswa->nilai, 2) }}</td>
                                     <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                    <td>
-                                        <a href="lihat_data.html"><span class="badge bg-info">Lihat Data</span></a>
-                                        <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
+                                        <a href="{{ route('admin.data-siswa', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-info">Lihat Data</span></a>
                                     </td>
                                 </tr>
                             @endforeach

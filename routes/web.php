@@ -42,4 +42,5 @@ Route::group(['controller' => AdminController::class, 'prefix' => '/admin', 'as'
     Route::post('/nilai/update/{siswa_id}', 'updateNilaiAction')->name('update-nilai-action');
     Route::get('/siswa-berprestasi', 'siswaBerprestasi')->name('siswa-berprestasi');
     Route::get('/siswa-berprestasi/{kelas}', 'siswaBerprestasiDetail')->name('siswa-berprestasi-detail');
+    Route::get('/siswa/{siswa_id}', 'dataSiswa')->name('data-siswa');
 });
