@@ -49,8 +49,8 @@
                         <span>Perhitungan</span>
                         </a>
                     </li>
-                    <li class="sidebar-item @if ($active == '') active @endif">
-                        <a href="dashboard-siswa-berprestasi.html" class='sidebar-link'>
+                    <li class="sidebar-item @if ($active == 'siswa-berprestasi') active @endif">
+                        <a href="{{ route('admin.siswa-berprestasi') }}" class='sidebar-link'>
                         <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                         <span>Siswa Berprestasi</span>
                         </a>

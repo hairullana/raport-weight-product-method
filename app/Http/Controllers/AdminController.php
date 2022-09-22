@@ -186,4 +186,11 @@ class AdminController extends Controller
 
         return back()->with('message', 'Nilai berhasil di update');
     }
+
+    public function siswaBerprestasi()
+    {
+        return view('admin.siswa-berprestasi', [
+            'active' => 'siswa-berprestasi',
+        ]);
+    }
 }
