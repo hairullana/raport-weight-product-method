@@ -85,7 +85,7 @@
                             <td>
                                 <a href="{{ route('admin.data-siswa', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-info">Lihat Data</span></a>
                                 <a href="edit_data_siswa.html"><span class="badge bg-warning">Edit</span></a>
-                                <a href="hapus.html"><span class="badge bg-danger">Hapus</span></a>
+                                <a href="{{ route('admin.hapus-siswa', Crypt::encrypt($siswa->id)) }}" onclick="confirm('Apakah anda yakin?')"><span class="badge bg-danger">Hapus</span></a>
                             </td>
                         </tr>
                     @endforeach

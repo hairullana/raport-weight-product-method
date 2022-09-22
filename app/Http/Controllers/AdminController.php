@@ -223,4 +223,10 @@ class AdminController extends Controller
             'nilai' => $nilai,
         ]);
     }
+
+    public function hapusSiswa($siswa_id)
+    {
+        Siswa::find(Crypt::decrypt($siswa_id))->delete();
+        return redirect()->back()->with('message', 'Berhasil hapus data siswa');
+    }
 }
