@@ -229,4 +229,14 @@ class AdminController extends Controller
         Siswa::find(Crypt::decrypt($siswa_id))->delete();
         return redirect()->back()->with('message', 'Berhasil hapus data siswa');
     }
+
+    public function editSiswa($siswa_id)
+    {
+        $siswa = Siswa::find(Crypt::decrypt($siswa_id));
+
+        return view('admin.edit-siswa', [
+            'active' => 'daftar-siswa',
+            'siswa' => $siswa,
+        ]);
+    }
 }
