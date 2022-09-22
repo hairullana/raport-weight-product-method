@@ -189,7 +189,17 @@ class AdminController extends Controller
 
     public function siswaBerprestasi()
     {
+        $guru = Guru::all();
+
         return view('admin.siswa-berprestasi', [
+            'active' => 'siswa-berprestasi',
+            'gurus' => $guru,
+        ]);
+    }
+
+    public function siswaBerprestasiDetail($kelas)
+    {
+        return view('admin.siswa-berprestasi-detail', [
             'active' => 'siswa-berprestasi',
         ]);
     }
