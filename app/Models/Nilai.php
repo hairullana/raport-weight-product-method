@@ -9,6 +9,8 @@ class Nilai extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function siswa()
     {
         return $this->belongsTo(Siswa::class);

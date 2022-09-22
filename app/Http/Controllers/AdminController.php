@@ -54,19 +54,27 @@ class AdminController extends Controller
         $kelas = Crypt::decrypt($kelas);
 
         $request->validate([
-            'nisn' => ['numeric', 'unique:siswas,nisn', 'min:10', 'max:10'],
+            'nisn' => ['numeric', 'unique:siswas,nisn'],
             'nama' => ['min:3'],
+            'is_active' => ['required'],
             'foto' => ['mimes:jpg,png,jpeg', 'max:1024']
         ]);
 
         $foto = $request->file('foto');
-        $foto = $foto->store('foto');
+        $foto = $foto->store('public/foto');
 
-        Siswa::create([
+        $foto = str_replace('public', '/storage', $foto);
+
+        $siswa = Siswa::create([
             'nama' => $request->nama,
             'nisn' => $request->nisn,
+            'is_active' => $request->is_active,
             'kelas' => $kelas,
             'foto' => $foto,
+        ]);
+
+        Nilai::create([
+            'siswa_id' => $siswa->id,
         ]);
 
         return redirect()->route('admin.daftar-siswa-detail', Crypt::encrypt($kelas))->with('message', 'Siswa berhasil ditambahkan');
@@ -207,9 +215,12 @@ class AdminController extends Controller
     public function dataSiswa($siswa_id)
     {
         $siswa = Siswa::find(Crypt::decrypt($siswa_id));
+        $nilai = Nilai::where('siswa_id', $siswa->id)->first();
 
         return view('admin.data-siswa', [
             'active' => 'daftar-siswa',
+            'siswa' => $siswa,
+            'nilai' => $nilai,
         ]);
     }
 }
