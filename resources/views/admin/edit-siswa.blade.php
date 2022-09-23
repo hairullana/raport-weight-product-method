@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form">
+                            <form class="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.edit-siswa-action', request()->siswa_id) }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
@@ -41,7 +41,7 @@
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="nisn">NISN</label>
-                                                    <input type="text" id="nisn" class="form-control @if($errors->has('nisn')) is-invalid @endif" placeholder="NISN" name="nisn" value="{{ $siswa->nisn }}" required></div>
+                                                    <input type="text" id="nisn" class="form-control @if($errors->has('nisn')) is-invalid @endif" placeholder="NISN" name="nisn" value="{{ $siswa->nisn }}" disabled></div>
                                                     @if ($errors->has('nisn'))
                                                         <div class="invalid-feedback">{{ $errors->first('nisn') }}</div>
                                                     @endif
@@ -69,7 +69,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="foto" class="form-label">Foto</label>
-                                                <input class="form-control @if($errors->has('foto')) is-invalid @endif" id="foto" name='foto' type="file" required>
+                                                <input class="form-control @if($errors->has('foto')) is-invalid @endif" id="foto" name='foto' type="file">
                                                 @if ($errors->has('foto'))
                                                     <div class="invalid-feedback">{{ $errors->first('foto') }}</div>
                                                 @endif

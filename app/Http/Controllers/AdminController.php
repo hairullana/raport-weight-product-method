@@ -239,4 +239,31 @@ class AdminController extends Controller
             'siswa' => $siswa,
         ]);
     }
+
+    public function editSiswaAction(Request $request, $siswa_id)
+    {
+        $request->validate([
+            'nama' => ['min:3'],
+            'is_active' => ['required'],
+            'foto' => ['mimes:jpg,png,jpeg', 'max:1024']
+        ]);
+
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $foto = $foto->store('public/foto');
+
+            $foto = str_replace('public', '/storage', $foto);
+
+            $siswa = Siswa::find(Crypt::decrypt($siswa_id))->update([
+                'foto' => $foto,
+            ]);
+        }
+
+        Siswa::find(Crypt::decrypt($siswa_id))->update([
+            'nama' => $request->nama,
+            'is_active' => $request->is_active,
+        ]);
+
+        return redirect()->route('admin.daftar-siswa-detail', Crypt::encrypt(Siswa::find(Crypt::decrypt($siswa_id))->kelas))->with('message', 'Siswa berhasil diubah');
+    }
 }
