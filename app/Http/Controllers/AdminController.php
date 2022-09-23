@@ -266,4 +266,13 @@ class AdminController extends Controller
 
         return redirect()->route('admin.daftar-siswa-detail', Crypt::encrypt(Siswa::find(Crypt::decrypt($siswa_id))->kelas))->with('message', 'Siswa berhasil diubah');
     }
+
+    public function updateSiswaStatus($siswa_id)
+    {
+        $siswa = Siswa::find(Crypt::decrypt($siswa_id));
+        $siswa->is_active = $siswa->is_active == 0 ? 1 : 0;
+        $siswa->save();
+
+        return redirect()->back()->with('message', "Status siswa $siswa->nama berhasil di update");
+    }
 }

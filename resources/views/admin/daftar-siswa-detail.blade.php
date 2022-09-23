@@ -77,7 +77,9 @@
                             <td>{{ $siswa->nilai->kehadiran }}</td>
                             <td>{{ $siswa->nilai->sikap }}</td>
                             <td>
-                                <span class="badge bg-{{ $siswa->is_active ? 'success' : 'danger' }}">{{ $siswa->is_active ? 'Aktif' : 'Tidak Aktif' }}</span>
+                                <a href="{{ route('admin.edit-siswa-status', Crypt::encrypt($siswa->id)) }}" onclick="confirm('Apakah anda yakin untuk mengubah status siswa?')">
+                                    <span class="badge bg-{{ $siswa->is_active ? 'success' : 'danger' }}">{{ $siswa->is_active ? 'Aktif' : 'Tidak Aktif' }}</span>
+                                </a>
                             </td>
                             <td>
                             <a href="{{ route('admin.update-nilai', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-primary">Update Nilai</span></a>
@@ -85,7 +87,7 @@
                             <td>
                                 <a href="{{ route('admin.data-siswa', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-info">Lihat Data</span></a>
                                 <a href="{{ route('admin.edit-siswa', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-warning">Edit</span></a>
-                                <a href="{{ route('admin.hapus-siswa', Crypt::encrypt($siswa->id)) }}" onclick="confirm('Apakah anda yakin?')"><span class="badge bg-danger">Hapus</span></a>
+                                <a href="{{ route('admin.hapus-siswa', Crypt::encrypt($siswa->id)) }}" onclick="confirm('Apakah anda yakin untuk menghapus data siswa?')"><span class="badge bg-danger">Hapus</span></a>
                             </td>
                         </tr>
                     @endforeach
