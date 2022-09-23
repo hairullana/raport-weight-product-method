@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item @if ($active == '') active @endif">
-                        <a href="logout.html" class='sidebar-link'>
+                        <a href="{{ route('auth.logout') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Log out</span>
                         </a>
