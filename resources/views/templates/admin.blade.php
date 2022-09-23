@@ -55,8 +55,8 @@
                         <span>Siswa Berprestasi</span>
                         </a>
                     </li>
-                    <li class="sidebar-item @if ($active == '') active @endif">
-                        <a href="user.html" class='sidebar-link'>
+                    <li class="sidebar-item @if ($active == 'users') active @endif">
+                        <a href="{{ route('admin.users') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>user</span>
                         </a>

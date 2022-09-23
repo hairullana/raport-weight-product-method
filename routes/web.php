@@ -47,4 +47,6 @@ Route::group(['controller' => AdminController::class, 'prefix' => '/admin', 'as'
     Route::post('/siswa/edit/{siswa_id}', 'editSiswaAction')->name('edit-siswa-action');
     Route::get('/siswa/status/{siswa_id}', 'updateSiswaStatus')->name('edit-siswa-status');
     Route::get('/siswa/{siswa_id}/{juara?}', 'dataSiswa')->name('data-siswa');
+    Route::get('/users', 'users')->name('users');
+    Route::get('/users/delete/{id}', 'hapusGuru')->name('hapus-guru');
 });

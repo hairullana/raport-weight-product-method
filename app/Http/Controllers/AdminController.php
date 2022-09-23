@@ -278,4 +278,14 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message', "Status siswa $siswa->nama berhasil di update");
     }
+
+    public function users()
+    {
+        $users = Guru::all();
+
+        return view('admin.user', [
+            'active' => 'users',
+            'users' => $users
+        ]);
+    }
 }
