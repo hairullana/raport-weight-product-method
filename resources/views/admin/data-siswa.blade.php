@@ -10,6 +10,9 @@
         <center> <img src="{{ $siswa->foto ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}" class="card-img" style="float: center height: 300ps; width :200px; margin: 20px; " height="300" width="200" alt="...">
             <div class="card-body">
                 <h5 class="col-md-8 fs-4" style="">{{ $siswa->nama }}</h5>
+                @if (request()->juara)
+                    <p class="card-text">Juara : {{ Crypt::decrypt(request()->juara) }}</p>
+                @endif
                 <p class="card-text">NISN : {{ $siswa->nisn }}</p>
                 <p class="card-text">Nilai PABD : {{ $nilai->pabd }}</p>
                 <p class="card-text">Nilai PPKN : {{ $nilai->ppkn }}</p>

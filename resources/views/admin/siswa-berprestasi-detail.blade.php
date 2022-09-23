@@ -35,58 +35,20 @@
         <div class="row match-height">
             <div class="col-12">
                 <div class="card-group">
-                    <div class="card">
-                        <div class="card-content">
-                            <img class="card-img-top img-fluid" src="https://i.ibb.co/8Y9LNYb/download.jpg" class="card-img" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">Baiq Nikum Yulisasih</h4>
-                                <p class="card-text">
-                                        Mendapatkan Predikat Juara 1 dengan nilai rata2 89 dari 30 siswa
-                                </p>
-                                <a href="lihat_data_siswa_berprestasi.html"><span class="badge bg-primary">Lihat Data</span></a>
-                                <small class="text-muted">Last updated 3 mins ago</small>
+                    @for ($i=0;$i<4;$i++)
+                        <div class="card">
+                            <div class="card-content">
+                                <img class="card-img-top img-fluid" src="{{ $siswa[$i]->foto ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}" class="card-img" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ $siswa[$i]->nama }}</h4>
+                                    <p class="card-text">
+                                            Mendapatkan Predikat Juara {{ $i+1 }} dengan nilai rata2 {{ number_format($siswa[$i]->nilai, 2) }} dari {{ $siswa->count() }} siswa
+                                    </p>
+                                    <a href="{{ route('admin.data-siswa', [Crypt::encrypt($siswa[$i]->id), Crypt::encrypt($i+1)]) }}"><span class="badge bg-info">Lihat Data</span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <img class="card-img-top img-fluid" src="https://i.ibb.co/8Y9LNYb/download.jpg" class="card-img" alt="Card image cap"/>
-                            <div class="card-body">
-                                <h4 class="card-title">Leonardo Davinci</h4>
-                                <p class="card-text">
-                                        Mendapatkan Predikat Juara 2 dengan nilai rata2 87 dari 30 siswa
-                                </p>
-                                <a href="lihat_data_siswa_berprestasi.html"><span class="badge bg-primary">Lihat Data</span></a>
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <img class="card-img-top img-fluid" src="https://i.ibb.co/8Y9LNYb/download.jpg" class="card-img" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">Siti Kamila</h4>
-                                <p class="card-text">
-                                        Mendapatkan Predikat Juara 3 dengan nilai rata2 85 dari 30 siswa
-                                </p>
-                                <a href="lihat_data_siswa_berprestasi.html"><span class="badge bg-primary">Lihat Data</span></a>
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <img class="card-img-top img-fluid" src="https://i.ibb.co/8Y9LNYb/download.jpg" class="card-img" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">Davis lavanya</h4>
-                                <p class="card-text">
-                                        Mendapatkan Predikat Juara 4 dengan nilai rata2 84 dari 30 siswa
-                                </p>
-                                <a href="lihat_data_siswa_berprestasi.html"><span class="badge bg-primary">Lihat Data</span></a>
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
+                    @endfor
                 </div>
             </div>
         </div>

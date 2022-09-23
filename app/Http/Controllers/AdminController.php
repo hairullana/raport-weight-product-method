@@ -207,8 +207,11 @@ class AdminController extends Controller
 
     public function siswaBerprestasiDetail($kelas)
     {
+        $siswa_berprestasi = $this->perhitunganKelas(Crypt::decrypt($kelas))->sortByDesc('nilai');
+
         return view('admin.siswa-berprestasi-detail', [
             'active' => 'siswa-berprestasi',
+            'siswa' => $siswa_berprestasi,
         ]);
     }
 
