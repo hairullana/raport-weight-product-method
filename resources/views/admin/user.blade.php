@@ -43,7 +43,7 @@
                             <td>{{ $guru->username }}</td>
                             <td>{{ $guru->kelas }}</td>
                             <td>
-                                <a href="edit_data_user.html"><span class="badge bg-warning">Edit</span></a>
+                                <a href="{{ route('admin.edit-user', Crypt::encrypt($guru->id)) }}"><span class="badge bg-warning">Edit</span></a>
                             </td>
                         </tr>
                     @endforeach

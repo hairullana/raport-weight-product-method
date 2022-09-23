@@ -288,4 +288,25 @@ class AdminController extends Controller
             'users' => $users
         ]);
     }
+
+    public function editGuru($id)
+    {
+        $guru = Guru::find(Crypt::decrypt($id));
+
+        return view('admin.edit-data-user', [
+            'active' => 'users',
+            'guru' => $guru,
+        ]);
+    }
+
+    public function editGuruAction($id, Request $request)
+    {
+        $guru = Guru::find(Crypt::decrypt($id));
+        $guru->nama = $request->nama;
+        $guru->username = $request->username;
+        if ($request->password) $guru->password = password_hash($request->password, PASSWORD_DEFAULT);
+        $guru->save();
+
+        return redirect()->route('admin.users')->with('message', 'Sukses update guru');
+    }
 }
