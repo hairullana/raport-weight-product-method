@@ -7,17 +7,19 @@ use App\Models\Nilai;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class GuruController extends Controller
 {
     public function index()
     {
-        $guru = Guru::all();
+        $kelas = Auth::guard('guru')->user()->kelas;
+        $siswa_berprestasi = $this->perhitunganKelas($kelas)->sortByDesc('nilai');
 
         return view('guru.index', [
             'active' => 'dashboard',
-            'gurus' => $guru,
+            'siswa_berprestasi' => $siswa_berprestasi,
         ]);
     }
 
