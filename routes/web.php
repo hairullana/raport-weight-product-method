@@ -18,7 +18,9 @@ use App\Http\Controllers\GuruController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('auth.login');
+    if (Auth::guard('admin')->check()) return redirect()->route('admin.index');
+    elseif (Auth::guard('guru')->check()) return redirect()->route('guru.index');
+    else return redirect()->route('auth.login');
 });
 
 Route::group(['controller' => AuthController::class, 'prefix' => '/auth', 'as' => 'auth.'], function () {
