@@ -45,17 +45,9 @@ class GuruController extends Controller
 
     public function perhitungan()
     {
+        $siswa = $this->perhitunganKelas($this->kelas);
+
         return view('guru.perhitungan', [
-            'active' => 'perhitungan'
-        ]);
-    }
-
-    public function perhitunganDetail($kelas)
-    {
-        $kelas = Crypt::decrypt($kelas);
-        $siswa = $this->perhitunganKelas($kelas);
-
-        return view('guru.perhitungan-detail', [
             'active' => 'perhitungan',
             'siswas' => $siswa->sortByDesc('nilai'),
         ]);
