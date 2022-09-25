@@ -6,12 +6,12 @@
 <title>Dashboard - Baiq Nikum Yulisasih (1800018282)</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/admin-assets/css/bootstrap.css">
-<link rel="stylesheet" href="/admin-assets/vendors/iconly/bold.css">
-<link rel="stylesheet" href="/admin-assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-<link rel="stylesheet" href="/admin-assets/vendors/bootstrap-icons/bootstrap-icons.css">
-<link rel="stylesheet" href="/admin-assets/css/app.css">
-<link rel="shortcut icon" href="/admin-assets/images/favicon.svg" type="image/x-icon">
+<link rel="stylesheet" href="/dashboard-assets/css/bootstrap.css">
+<link rel="stylesheet" href="/dashboard-assets/vendors/iconly/bold.css">
+<link rel="stylesheet" href="/dashboard-assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" href="/dashboard-assets/vendors/bootstrap-icons/bootstrap-icons.css">
+<link rel="stylesheet" href="/dashboard-assets/css/app.css">
+<link rel="shortcut icon" href="/dashboard-assets/images/favicon.svg" type="image/x-icon">
 </head>
 <body>
 <div id="app">

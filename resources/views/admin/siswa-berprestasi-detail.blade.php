@@ -1,4 +1,4 @@
-@extends('templates.admin')
+@extends('templates.main')
 
 @section('body')
     <header class="mb-3">

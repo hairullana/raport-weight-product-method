@@ -6,12 +6,12 @@
 <title>Dashboard - Baiq Nikum Yulisasih (1800018282)</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/dashboard-assets/css/bootstrap.css">
-<link rel="stylesheet" href="/dashboard-assets/vendors/iconly/bold.css">
-<link rel="stylesheet" href="/dashboard-assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-<link rel="stylesheet" href="/dashboard-assets/vendors/bootstrap-icons/bootstrap-icons.css">
-<link rel="stylesheet" href="/dashboard-assets/css/app.css">
-<link rel="shortcut icon" href="/dashboard-assets/images/favicon.svg" type="image/x-icon">
+<link rel="stylesheet" href="assets/css/bootstrap.css">
+<link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+<link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 </head>
 <body>
 <div id="app">
@@ -37,7 +37,7 @@
                         <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item active">
                         <a href="dashboard-table.html" class='sidebar-link'>
                         <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                         <span>Daftar Siswa</span>
@@ -55,7 +55,7 @@
                         <span>Siswa Berprestasi</span>
                         </a>
                     </li>
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item ">
                         <a href="user.html" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>user</span>
@@ -79,8 +79,8 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Tambah Data</h3>
-                            <p class="text-subtitle text-muted">User</p>
+                            <h3>Tambah Nilai </h3>
+                            <p class="text-subtitle text-muted">Siswa</p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -88,7 +88,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="index.html">Dashboard</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">User</li>
+                                <li class="breadcrumb-item active" aria-current="page">Siswa</li>
                             </ol>
                             </nav>
                         </div>
@@ -108,39 +108,83 @@
                                         <div class="row">
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
-                                                    <label for="first-name-column">Nama</label>
-                                                    <input type="text" id="first-name-column" class="form-control" placeholder="Nama" name="fname-column"></div>
+                                                    <label for="first-name-column">NISN</label>
+                                                    <input type="text" id="first-name-column" class="form-control" placeholder="NISN" name="fname-column"></div>
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
-                                                    <label for="last-name-column">Telepon</label>
-                                                    <input type="text" id="last-name-column" class="form-control" placeholder="Telepon" name="lname-column"></div>
+                                                    <label for="last-name-column">Nama</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="Nama" name="lname-column"></div>
                                             </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="city-column">Email</label>
-                                                    <input type="text" id="city-column" class="form-control" placeholder="Email" name="city-column"></div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="country-floating">Password</label>
-                                                    <input type="text" id="country-floating" class="form-control" name="country-floating" placeholder="Password"></div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="company-column">Pembimbing Kelas</label>
-                                                    <input type="text" id="company-column" class="form-control" name="company-column" placeholder="Pembimbing Kelas"></div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="email-id-column">Kota</label>
-                                                    <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Kota"></div>
-                                            </div>
+                                             
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label for="email-id-column">Status</label>
                                                     <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Status"></div>
                                             </div>
+
+
+
+
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai PABD</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai PPKN</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai Bahasa Indonesia</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai Matematika</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai IPA</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai IPS</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai SBDB</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai BAHASA Jawa</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai Pendidikan Batik</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai Keadiran</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="last-name-column">Nilai Sikap</label>
+                                                    <input type="text" id="last-name-column" class="form-control" placeholder="" name="lname-column"></div>
+                                            </div>
+                                        
+
+
                                             <div class="form-group col-12">
                                                 <div class='form-check'>
                                                     <div class="checkbox">
@@ -164,4 +208,25 @@
                 <!-- // Basic multiple Column Form section end -->
             </div>
             <footer>
-            @endsection
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>
+                         2022 &copy; Universitas Ahmad Dalam
+                    </p>
+                </div>
+                <div class="float-end">
+                    <p>
+                         Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by Baiq Nikum Yulisasih (1800018282)</a>
+                    </p>
+                </div>
+            </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="assets/js/main.js"></script>
+    </body>
+    </html>

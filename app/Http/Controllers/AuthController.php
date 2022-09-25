@@ -25,6 +25,12 @@ class AuthController extends Controller
                 $request->session()->regenerate();
                 return redirect()->route('admin.index');
             }
+        } else {
+            if (Auth::guard('guru')->attempt($credentials)) {
+                $request->session()->regenerate();
+                return redirect()->route('guru.index');
+            } else {
+            }
         }
     }
 

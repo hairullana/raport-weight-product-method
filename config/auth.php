@@ -70,7 +70,7 @@ return [
     'providers' => [
         'gurus' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Guru::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
