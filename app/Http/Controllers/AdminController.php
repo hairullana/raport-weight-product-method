@@ -100,7 +100,7 @@ class AdminController extends Controller
 
     private function perhitunganKelas($kelas)
     {
-        $siswa = Siswa::where('kelas', $kelas)->get();
+        $siswa = Siswa::where('kelas', $kelas)->with('nilai')->get();
 
         // hitung vektor s
         $total_vector_s = 0;
@@ -308,5 +308,15 @@ class AdminController extends Controller
         $guru->save();
 
         return redirect()->route('admin.users')->with('message', 'Sukses update guru');
+    }
+
+    public function modeLengkap($kelas)
+    {
+        $siswas = $this->perhitunganKelas(Crypt::decrypt($kelas))->sortByDesc('nilai');
+
+        return view('admin.mode-lengkap', [
+            'active' => 'siswa-berprestasi',
+            'siswas' => $siswas,
+        ]);
     }
 }

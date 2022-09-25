@@ -53,6 +53,7 @@ Route::group(['controller' => AdminController::class, 'prefix' => '/admin', 'as'
     Route::get('/users', 'users')->name('users');
     Route::get('/users/{id}', 'editGuru')->name('edit-user');
     Route::post('/users/{id}', 'editGuruAction')->name('edit-user-action');
+    Route::get('/mode-lengkap/{kelas}', 'modeLengkap')->name('mode-lengkap');
 });
 
 Route::group(['controller' => GuruController::class, 'prefix' => '/guru', 'as' => 'guru.', 'middleware' => 'auth:guru'], function () {
