@@ -53,7 +53,7 @@
                             <td>{{ number_format($siswa->c3, 2) }}</td>
                             <td>{{ number_format($siswa->nilai, 2) }}</td>
                             <td>
-                                <a href="{{ route('admin.data-siswa', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-info">Lihat Data</span></a>
+                                <a href="{{ route('guru.data-siswa', [Crypt::encrypt($siswa->id), Crypt::encrypt($loop->iteration)]) }}"><span class="badge bg-info">Lihat Data</span></a>
                             </td>
                         </tr>
                     @endforeach
