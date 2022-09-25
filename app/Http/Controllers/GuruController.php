@@ -12,10 +12,20 @@ use Illuminate\Support\Facades\Crypt;
 
 class GuruController extends Controller
 {
+    protected $kelas;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->kelas = Auth::guard('guru')->user()->kelas;
+
+            return $next($request);
+        });
+    }
+
     public function index()
     {
-        $kelas = Auth::guard('guru')->user()->kelas;
-        $siswa_berprestasi = $this->perhitunganKelas($kelas)->sortByDesc('nilai');
+        $siswa_berprestasi = $this->perhitunganKelas($this->kelas)->sortByDesc('nilai');
 
         return view('guru.index', [
             'active' => 'dashboard',
@@ -25,20 +35,9 @@ class GuruController extends Controller
 
     public function daftarSiswa()
     {
-        $guru = Guru::all();
+        $siswa = Siswa::where('kelas', $this->kelas)->get();
 
         return view('guru.daftar-siswa', [
-            'active' => 'daftar-siswa',
-            'gurus' => $guru,
-        ]);
-    }
-
-    public function daftarSiswaDetail($kelas)
-    {
-        $kelas = Crypt::decrypt($kelas);
-        $siswa = Siswa::where('kelas', $kelas)->get();
-
-        return view('guru.daftar-siswa-detail', [
             'active' => 'daftar-siswa',
             'siswas' => $siswa,
         ]);
