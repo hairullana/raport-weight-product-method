@@ -43,44 +43,6 @@ class GuruController extends Controller
         ]);
     }
 
-    public function tambahSiswa()
-    {
-        return view('guru.tambah_data_siswa', [
-            'active' => 'daftar-siswa',
-        ]);
-    }
-
-    public function tambahSiswaAction(Request $request, $kelas)
-    {
-        $kelas = Crypt::decrypt($kelas);
-
-        $request->validate([
-            'nisn' => ['numeric', 'unique:siswas,nisn'],
-            'nama' => ['min:3'],
-            'is_active' => ['required'],
-            'foto' => ['mimes:jpg,png,jpeg', 'max:1024']
-        ]);
-
-        $foto = $request->file('foto');
-        $foto = $foto->store('public/foto');
-
-        $foto = str_replace('public', '/storage', $foto);
-
-        $siswa = Siswa::create([
-            'nama' => $request->nama,
-            'nisn' => $request->nisn,
-            'is_active' => $request->is_active,
-            'kelas' => $kelas,
-            'foto' => $foto,
-        ]);
-
-        Nilai::create([
-            'siswa_id' => $siswa->id,
-        ]);
-
-        return redirect()->route('guru.daftar-siswa-detail', Crypt::encrypt($kelas))->with('message', 'Siswa berhasil ditambahkan');
-    }
-
     public function perhitungan()
     {
         return view('guru.perhitungan', [
@@ -242,72 +204,5 @@ class GuruController extends Controller
             'active' => 'daftar-siswa',
             'siswa' => $siswa,
         ]);
-    }
-
-    public function editSiswaAction(Request $request, $siswa_id)
-    {
-        $request->validate([
-            'nama' => ['min:3'],
-            'is_active' => ['required'],
-            'foto' => ['mimes:jpg,png,jpeg', 'max:1024']
-        ]);
-
-        if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-            $foto = $foto->store('public/foto');
-
-            $foto = str_replace('public', '/storage', $foto);
-
-            $siswa = Siswa::find(Crypt::decrypt($siswa_id))->update([
-                'foto' => $foto,
-            ]);
-        }
-
-        Siswa::find(Crypt::decrypt($siswa_id))->update([
-            'nama' => $request->nama,
-            'is_active' => $request->is_active,
-        ]);
-
-        return redirect()->route('guru.daftar-siswa-detail', Crypt::encrypt(Siswa::find(Crypt::decrypt($siswa_id))->kelas))->with('message', 'Siswa berhasil diubah');
-    }
-
-    public function updateSiswaStatus($siswa_id)
-    {
-        $siswa = Siswa::find(Crypt::decrypt($siswa_id));
-        $siswa->is_active = $siswa->is_active == 0 ? 1 : 0;
-        $siswa->save();
-
-        return redirect()->back()->with('message', "Status siswa $siswa->nama berhasil di update");
-    }
-
-    public function users()
-    {
-        $users = Guru::all();
-
-        return view('guru.user', [
-            'active' => 'users',
-            'users' => $users
-        ]);
-    }
-
-    public function editGuru($id)
-    {
-        $guru = Guru::find(Crypt::decrypt($id));
-
-        return view('guru.edit-data-user', [
-            'active' => 'users',
-            'guru' => $guru,
-        ]);
-    }
-
-    public function editGuruAction($id, Request $request)
-    {
-        $guru = Guru::find(Crypt::decrypt($id));
-        $guru->nama = $request->nama;
-        $guru->username = $request->username;
-        if ($request->password) $guru->password = password_hash($request->password, PASSWORD_DEFAULT);
-        $guru->save();
-
-        return redirect()->route('guru.users')->with('message', 'Sukses update guru');
     }
 }

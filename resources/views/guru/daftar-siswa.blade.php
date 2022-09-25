@@ -71,7 +71,7 @@
                                 <span class="badge bg-{{ $siswa->is_active ? 'success' : 'danger' }}">{{ $siswa->is_active ? 'Aktif' : 'Tidak Aktif' }}</span>
                             </td>
                             <td>
-                            <a href="{{ route('admin.update-nilai', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-primary">Update Nilai</span></a>
+                            <a href="{{ route('guru.update-nilai', Crypt::encrypt($siswa->id)) }}"><span class="badge bg-primary">Update Nilai</span></a>
                             </td>
                         </tr>
                     @endforeach
