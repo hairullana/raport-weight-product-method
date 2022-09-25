@@ -63,6 +63,5 @@ Route::group(['controller' => GuruController::class, 'prefix' => '/guru', 'as' =
     Route::get('/perhitungan', 'perhitungan')->name('perhitungan');
     Route::get('/perhitungan/{kelas}', 'perhitunganDetail')->name('perhitungan-action');
     Route::get('/siswa-berprestasi', 'siswaBerprestasi')->name('siswa-berprestasi');
-    Route::get('/siswa-berprestasi/{kelas}', 'siswaBerprestasiDetail')->name('siswa-berprestasi-detail');
     Route::get('/siswa/{siswa_id}/{juara?}', 'dataSiswa')->name('data-siswa');
 });

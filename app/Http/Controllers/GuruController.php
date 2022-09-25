@@ -152,21 +152,11 @@ class GuruController extends Controller
 
     public function siswaBerprestasi()
     {
-        $guru = Guru::all();
+        $siswa_berprestasi = $this->perhitunganKelas($this->kelas)->sortByDesc('nilai');
 
-        return view('guru.siswa-berprestasi', [
+        return view('guru.index', [
             'active' => 'siswa-berprestasi',
-            'gurus' => $guru,
-        ]);
-    }
-
-    public function siswaBerprestasiDetail($kelas)
-    {
-        $siswa_berprestasi = $this->perhitunganKelas(Crypt::decrypt($kelas))->sortByDesc('nilai');
-
-        return view('guru.siswa-berprestasi-detail', [
-            'active' => 'siswa-berprestasi',
-            'siswa' => $siswa_berprestasi,
+            'siswa_berprestasi' => $siswa_berprestasi,
         ]);
     }
 
@@ -179,22 +169,6 @@ class GuruController extends Controller
             'active' => 'daftar-siswa',
             'siswa' => $siswa,
             'nilai' => $nilai,
-        ]);
-    }
-
-    public function hapusSiswa($siswa_id)
-    {
-        Siswa::find(Crypt::decrypt($siswa_id))->delete();
-        return redirect()->back()->with('message', 'Berhasil hapus data siswa');
-    }
-
-    public function editSiswa($siswa_id)
-    {
-        $siswa = Siswa::find(Crypt::decrypt($siswa_id));
-
-        return view('guru.edit-siswa', [
-            'active' => 'daftar-siswa',
-            'siswa' => $siswa,
         ]);
     }
 }
