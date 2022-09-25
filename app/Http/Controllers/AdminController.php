@@ -324,7 +324,7 @@ class AdminController extends Controller
     public function print($kelas)
     {
         $kelas = Crypt::decrypt($kelas);
-        $siswa = $this->perhitunganKelas($kelas);
+        $siswa = $this->perhitunganKelas($kelas)->sortByDesc('nilai');
 
         $pdf = new Mpdf();
 
