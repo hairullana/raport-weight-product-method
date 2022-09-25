@@ -66,3 +66,5 @@ Route::group(['controller' => GuruController::class, 'prefix' => '/guru', 'as' =
     Route::get('/siswa-berprestasi', 'siswaBerprestasi')->name('siswa-berprestasi');
     Route::get('/siswa/{siswa_id}/{juara?}', 'dataSiswa')->name('data-siswa');
 });
+
+Route::get('/print/{kelas}', [AdminController::class, 'print'])->name('print')->middleware('auth:admin,guru');

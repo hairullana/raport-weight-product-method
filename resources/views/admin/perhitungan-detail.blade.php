@@ -26,7 +26,7 @@
                 <section class="section">
                 <div class="card">
                     <div class="card-header">
-                         Hasil Perhitungan Metode Weigted Product <a href="#"><span class="badge bg-dark">Cetak Semua Data</span></a>
+                         Hasil Perhitungan Metode Weigted Product <a target="_blank" href="{{ route('print', request()->kelas) }}"><span class="badge bg-dark">Cetak Semua Data</span></a>
                          <a href="{{ route('admin.mode-lengkap', request()->kelas) }}"><span class="badge bg-primary">Mode Lengkap</span></a>
                     </div>
                     <div class="card-body">

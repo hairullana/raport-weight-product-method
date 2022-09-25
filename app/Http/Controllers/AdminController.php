@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Nilai;
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Crypt;
+use Mpdf\Mpdf;
 
 class AdminController extends Controller
 {
@@ -318,5 +319,21 @@ class AdminController extends Controller
             'active' => 'siswa-berprestasi',
             'siswas' => $siswas,
         ]);
+    }
+
+    public function print($kelas)
+    {
+        $kelas = Crypt::decrypt($kelas);
+        $siswa = $this->perhitunganKelas($kelas);
+
+        $pdf = new Mpdf();
+
+        $view = view('templates.print', [
+            'siswas' => $siswa,
+        ])->render();
+
+        $pdf->WriteHTML($view);
+
+        $pdf->Output();
     }
 }
