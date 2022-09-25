@@ -73,8 +73,7 @@
                     </li>
                     @if (Auth::guard('admin')->check())
                         <li class="sidebar-item @if ($active == 'users') active @endif">
-                        <a href="{{ route('admin.users') }}" class='sidebar-link'>
-                            <a href="{{ route('guru.users') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.users') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>user</span>
                             </a>
