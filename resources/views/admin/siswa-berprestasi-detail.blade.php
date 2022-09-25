@@ -35,20 +35,28 @@
         <div class="row match-height">
             <div class="col-12">
                 <div class="card-group">
-                    @for ($i=0;$i<4;$i++)
+                    @php
+                        $i = 1;
+                    @endphp
+                    @foreach ($siswa as $s)
+                    @if ($i < 5)
                         <div class="card">
                             <div class="card-content">
-                                <img class="card-img-top img-fluid" src="{{ $siswa[$i]->foto ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}" class="card-img" alt="Card image cap">
+                                <img class="card-img-top img-fluid" src="{{ $s->foto ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}" class="card-img" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title">{{ $siswa[$i]->nama }}</h4>
+                                    <h4 class="card-title">{{ $s->nama }} {{ $i }}</h4>
                                     <p class="card-text">
-                                            Mendapatkan Predikat Juara {{ $i+1 }} dengan nilai rata2 {{ number_format($siswa[$i]->nilai, 2) }} dari {{ $siswa->count() }} siswa
+                                            Mendapatkan Predikat Juara {{ $loop->iteration }} dengan nilai rata2 {{ number_format($s->nilai, 2) }} dari {{ $s->count() }} siswa
                                     </p>
-                                    <a href="{{ route('admin.data-siswa', [Crypt::encrypt($siswa[$i]->id), Crypt::encrypt($i+1)]) }}"><span class="badge bg-info">Lihat Data</span></a>
+                                    <a href="{{ route('admin.data-siswa', [Crypt::encrypt($s->id), Crypt::encrypt($i)]) }}"><span class="badge bg-info">Lihat Data</span></a>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                        @php
+                            $i++;
+                        @endphp
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>

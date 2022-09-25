@@ -11,7 +11,11 @@
         <section class="row">
         <div class="col-12 col-lg-12">
             <div class="row">
-                @for ($i = 0; $i < 4 ; $i++)
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($siswa_berprestasi as $siswa)
+                @if ($i < 5)
                     <div class="col-6 col-lg-3 col-lg-3">
                         <div class="card">
                             <div class="card-body px-3 py-4-5">
@@ -22,14 +26,18 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Peringkat {{ $i+1 }}</h6>
-                                        <h6 class="font-extrabold mb-0">{{ $siswa_berprestasi[$i]->nama }}</h6>
+                                        <h6 class="text-muted font-semibold">Peringkat {{ $i }}</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $siswa->nama }}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endfor
+                @endif
+                    @php
+                        $i++;
+                    @endphp
+                @endforeach
             </div>
             </section>
         </div>
