@@ -49,6 +49,7 @@ class GuruController extends Controller
 
         return view('guru.perhitungan', [
             'active' => 'perhitungan',
+            'kelas' => Auth::guard('guru')->user()->kelas,
             'siswas' => $siswa->sortByDesc('nilai'),
         ]);
     }
